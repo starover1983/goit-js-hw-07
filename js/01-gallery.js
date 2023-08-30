@@ -26,7 +26,15 @@ function onOpenModalImage(e) {
   if (!e.target.nodeName === "IMG") {
     return 
   } else {
-        instance = basicLightbox.create(`<img src="${e.target.dataset.source}" width="800" height="600">`);
+        instance = basicLightbox.create(`<img src="${e.target.dataset.source}" width="800" height="600">`,
+        {
+            onShow: (instance) => {galleryList.addEventListener('keyup', onCloseModal)},
+          /*
+           * Function that gets executed before the lightbox closes.
+           * Returning false will prevent the lightbox from closing.
+           */
+          onClose: (instance) => {galleryList.removeEventListener('keyup', onCloseModal)}
+        });
     showInstance();
  
   }

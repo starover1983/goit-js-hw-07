@@ -13,4 +13,5 @@ const markup = galleryItems.map(({ preview: smallImage, original: largeImage, de
 </div> `).join('')
 galleryList.insertAdjacentHTML("beforeend", markup)
 
-let lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250, showCounter:false,captionsData:'alt'});
+let lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250, showCounter:false,captionsData:'alt'},
+);
